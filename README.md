@@ -1,17 +1,31 @@
-# 2425---FUNDAMENTOS-DE-PROGRAMACION----UEA-L-UFB-026
+# Matriz bidimensional 3x3
+matriz = [
+    [10, 25, 30],
+    [45, 50, 60],
+    [70, 85, 90]
+]
 
-## Docente: Walter Nuñez Zamora
+# Función para ordenar una fila específica usando Bubble Sort
+def ordenar_fila(matriz, fila):
+    n = len(matriz[fila])
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if matriz[fila][j] > matriz[fila][j + 1]:
+                matriz[fila][j], matriz[fila][j + 1] = matriz[fila][j + 1], matriz[fila][j]
 
-### Descripción
-Este repositorio contiene materiales, ejemplos y ejercicios del curso **Fundamentos de Programación**, impartido en la UEA-L-UFB-026. Se enfoca en los principios esenciales de la programación, incluyendo estructuras de control, tipos de datos, algoritmos y buenas prácticas de codificación.
+# Mostrar matriz original
+print("Matriz original:")
+for fila in matriz:
+    print(fila)
 
+# Selección de fila a ordenar
+fila_a_ordenar = int(input("Ingresa el número de la fila que deseas ordenar (0, 1 o 2): "))
 
-### Requisitos Previos
-- Conocimientos básicos de matemáticas
-- Lógica y pensamiento computacional
-- Instalación de un entorno de desarrollo (Ejemplo: Python)
-
-### Cómo usar este repositorio
-1. Descarga o clona el repositorio:
-   ```sh
-   git clone https://github.com/usuario_XXX/repositorio_XXX.git
+# Ordenar la fila elegida
+if 0 <= fila_a_ordenar < len(matriz):
+    ordenar_fila(matriz, fila_a_ordenar)
+    print("\nMatriz con la fila ordenada:")
+    for fila in matriz:
+        print(fila)
+else:
+    print("Número de fila inválido.")
